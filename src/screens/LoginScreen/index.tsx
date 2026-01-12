@@ -33,7 +33,7 @@ const LoginScreen: React.FC = () => {
     if (result.success) {
       navigation.navigate("HomeScreen")
     } else {
-      Alert.alert('Errorxx', result.message);
+      Alert.alert('Error', result.message);
     }
   };
 
