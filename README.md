@@ -1,97 +1,100 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Authentication App
 
-# Getting Started
+## Overview
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+This is a **React Native application** implementing user authentication using **React Context**, **Redux**, and **redux-persist**.  
+The app includes:
 
-## Step 1: Start Metro
+- Login and Signup functionality  
+- Persisted authentication state  
+- Logout functionality that clears Redux, persisted storage, and context  
+- Automatic navigation based on authentication state  
+- Loading screen while checking user state  
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Built with **TypeScript** for type safety.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## Features
 
-# OR using Yarn
-yarn start
-```
+### 1. Login
+- Validates email and password against stored user data.  
+- Persists user session using Redux + redux-persist.  
+- Returns success/error messages (`LoginResult` type).
 
-## Step 2: Build and run your app
+### 2. Signup
+- Allows creating a new user with name, email, and password.  
+- Returns success/error messages (`SignupResult` type).
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+### 3. Logout
+- Clears user data from Redux, persisted storage, and context.  
+- Returns a `"Logged Out"` message.
 
-### Android
+### 4. Loading Screen
+- Checks persisted authentication state.  
+- Redirects to `HomeScreen` if logged in, or `LoginScreen` if not.
 
-```sh
-# Using npm
-npm run android
+### 5. Navigation
+- Uses React Navigation.  
+- Automatically routes users based on authentication state.
 
-# OR using Yarn
-yarn android
-```
+---
 
-### iOS
+## Folder Structure
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+src/
+├─ actions/ # Redux action creators (login/logout)
+├─ reducers/ # Redux reducers (auth)
+├─ store/ # Redux store + redux-persist setup
+├─ context/ # AuthContext and AuthProvider
+├─ screens/ # LoginScreen, HomeScreen, LoadingScreen
+├─ navigation/ # Navigation setup
+├─ config/ # Import assets
+├─ assets/ # store assets(icons)
+├─ utils/ # standard function calls
+└─ App.tsx # App entry point
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
 
-```sh
-bundle install
-```
+---
 
-Then, and every time you update your native dependencies, run:
+## Installation
 
-```sh
-bundle exec pod install
-```
+1. Clone the repository:
+git clone <repo-url>
+cd <project-directory>
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+2. Install dependencies:
+npm install
+# or
+yarn install
 
-```sh
-# Using npm
-npm run ios
+3. Start Metro Bundler:
+npx react-native start
 
-# OR using Yarn
-yarn ios
-```
+4. Run the app:=
+# iOS
+npx react-native run-ios
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+# Android
+npx react-native run-android
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## Dependencies
+   "@react-native-async-storage/async-storage"
+    "@react-native/new-app-screen"
+    "@react-navigation/native"
+    "@react-navigation/native-stack"
+    "@reduxjs/toolkit"
+    "react"
+    "react-native"
+    "react-native-safe-area-context"
+    "react-native-screens"
+    "react-redux"
+    "redux"
+    "redux-persist"
+    "redux-thunk"
+    
+## Demo Video Link
+https://drive.google.com/file/d/19vaQibTWUW8aEsehEtdIvMiGDCYXPn7c/view?usp=sharing
 
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## Author
+Pooventhiran Raman
